@@ -55,45 +55,6 @@ readWorkData <- function() {
     data
 }
 
-readData2 <- function() {
-    
-    fileName <- "household_power_consumption.txt"
-        
-    read.table(fileName, header = TRUE
-               , sep=";", na.strings="?"
-               , quote="", stringsAsFactors = FALSE
-               , colClasses = c("character","character","numeric","numeric","numeric","numeric", "numeric","numeric","numeric")
-    )
-}
-
-readData_OK <- function() {
-    
-    fileName <- "household_power_consumption.txt"
-    
-    someRows <- read.table(fileName, header = TRUE
-                           , sep=";", na.strings="?"
-                           , quote="", stringsAsFactors = FALSE
-                           , nrows = 100
-    ) 
-    
-    columnTypes <- sapply(someRows, class) 
-    
-    read.table(fileName, header = TRUE
-               , sep=";", na.strings="?"
-               , quote="", stringsAsFactors = FALSE
-               , colClasses = columnTypes
-    )
-}
-
-readData_Cola <- function() {
-    
-    data_full <- read.csv("household_power_consumption.txt", header=T, sep=';', na.strings="?", 
-                          nrows=2075259, check.names=F, stringsAsFactors=F, comment.char="", quote='\"')
-    
-    data_full$Date <- as.Date(data_full$Date, format="%d/%m/%Y")
-    
-    data_full
-}
 
 necessaryMemoryInMegabytes <- function() {
     
